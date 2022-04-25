@@ -1,0 +1,11 @@
+<div class="wrapper">
+
+  <div class="text-center name"> <img src="../../assets/image/admin.png" width="200px" height="200px"></div>
+  <div class="alignment">
+  <form class="p-3 mt-3 justify-content-center">
+      <div class="form-field d-flex align-items-center" style="border: 0pt;">   <input type="text"  [(ngModel)]="email" name="userName" id="userName" placeholder="Email" style="text-align: center;"> </div>
+      <div class="form-field d-flex align-items-center"> <input type="password"  [(ngModel)]="password"  name="password" style="text-align: center;" id="pwd" placeholder="Password"> </div>
+      <button class="btn mr-3 justify-content-center" style=" text-align: center;" (click)="signin()" >Login</button>
+  </form>
+</div>
+</div>

@@ -1,0 +1,8 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+:root{
+  --main-bg-color: #1b0806;
+  --main-text-color: #f38379;
+  --second-text-color: #2e0505;
+  --second-bg-color: #f3f3f3;
+}

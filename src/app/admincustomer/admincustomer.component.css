@@ -1,0 +1,19 @@
+.btn{
+  border-radius: 30px;
+  -webkit-box-shadow: 0 0 10px rgb(241, 74, 27);
+        box-shadow: 0 0 10px rgb(230, 30, 30);
+}
+.btn:hover{
+  border-radius: 30px;
+color: red;
+}
+*{
+  text-align: center;
+}
+
+.table{
+  border-color: #f38379;
+}
+.heading{
+  color: #f38379;
+}

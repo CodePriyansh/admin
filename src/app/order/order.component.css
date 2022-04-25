@@ -1,0 +1,37 @@
+*{
+  text-align: center;
+}
+
+.table{
+  border-color: #f38379;
+}
+.heading{
+  color: #f38379;
+}
+.name{
+  text-align: center;
+}
+.order{
+  padding: 0%;
+}
+.btnn{
+
+  border-radius: 30px;
+  -webkit-box-shadow: 0 0 10px rgb(78, 231, 86);
+        box-shadow: 0 0 10px rgb(36, 230, 52);
+}
+.btnnn{
+  border-radius: 30px;
+  -webkit-box-shadow: 0 0 10px rgb(241, 74, 27);
+        box-shadow: 0 0 10px rgb(230, 30, 30);
+}
+.btnn:hover{
+
+  border-radius: 30px;
+  color: green;
+}
+.btnnn:hover{
+  border-radius: 30px;
+color: red;
+}
+

@@ -1,0 +1,182 @@
+<div class="d-flex" id="wrapper" #wrapper>
+  <!-- Sidebar -->
+  <div class="bg-white" id="sidebar-wrapper">
+      <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><i
+              class="image"><img src="../assets/image/image-removebg-preview (22).png" width="150px" height="auto"></i></div>
+      <div class="list-group list-group-flush my-3">
+          <a routerLink="" class="list-group-item list-group-item-action bg-transparent second-text active"><i
+                  class="fas fa-tachometer-alt me-2"></i>Dashboard</a>
+
+                  <div class="list-group-item list-group-item-action second-text fw-bold dropdown" >
+                      <i class="fas fa-project-diagram me-2"></i><a class="dropdown-toggle" style="color:#1b0806; text-decoration: none;" href="#"  id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                  Categories
+                      </a>
+
+                      <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <li><a class="dropdown-item" routerLink="viewCategory">Category List</a></li>
+
+
+                        <div class="list-group-item list-group-item-action dropdown second-text fw-bold dropdown" style="   background-color: #f38379;
+                        background-image: linear-gradient(315deg, #ffffff 0%, #f38379 74%)" >
+                        <li><a>
+                          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                           Add Category
+                          </button></a></li>
+                        </div>
+                      </ul>
+                    </div>
+                    <div class="list-group-item list-group-item-action second-text fw-bold dropdown"
+                    >
+                        <i class="fas fa-gift me-2"></i><a class="dropdown-toggle" style="color:#1b0806; text-decoration: none;" href="#"  id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                    Products
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                          <li><a class="dropdown-item" routerLink="viewProduct">Product List</a></li>
+
+
+                          <div class="list-group-item list-group-item-action dropdown second-text fw-bold dropdown" style="background-color:#f38379; background-image: linear-gradient(315deg, #ffffff 0%, #f38379 74%)" >
+                          <li><a>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modalexample">
+                             Add Product
+                            </button></a></li>
+                          </div>
+                        </ul>
+                      </div>
+                      <a routerLink="order" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                          class="fas fa-shopping-cart me-2"></i>Orders</a>
+                          <a routerLink="adminCustomer" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                              class="fas fa-comment-dots me-2"></i>Customers</a>
+      </div>
+  </div>
+  <!-- /#sidebar-wrapper -->
+
+  <!-- Page Content -->
+  <div id="page-content-wrapper">
+      <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
+          <div class="d-flex align-items-center">
+              <i (click)="show(wrapper)" class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
+              <h2 class="fs-2 m-0">Dashboard</h2>
+          </div>
+
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+              aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle second-text fw-bold" href="#" id="navbarDropdown"
+                          role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          <i class="fas fa-user me-2"></i>
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                          <li><a class="dropdown-item" (click)="signout()">Logout</a></li>
+                      </ul>
+                  </li>
+              </ul>
+          </div>
+      </nav>
+
+      <div class="container-fluid px-4" >
+
+
+        <router-outlet></router-outlet>
+
+
+      </div>
+  </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="  background-color: #f38379;
+    background-image: linear-gradient(315deg, #ffffff 0%, #f38379 74%)
+  ">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Category</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <label  for="name">Name</label>
+        <input type="text" [(ngModel)]="catName" id="name" name="catName"  placeholder="category name..">
+      </div>
+      <div class="modal-body">
+        <label for="image">Image</label>
+        <input type="file" (change)="selectCatImage($event)"  id="image" name="catImage" placeholder="category image..">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="b btn-secondary" style="border-radius: 30px; box-shadow: #1b0806;" data-bs-dismiss="modal">Close</button>
+        <button type="button" (click)="addCategory()" style="border-radius: 30px; box-shadow: #f38379;" class="b btn-outline-secondary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<form #regform="ngForm">
+<div class="modal fade" id="Modalexample" tabindex="1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+  <div class="modal-dialog">
+    <div class="modal-content" style="  background-color: #f38379;
+    background-image: linear-gradient(315deg, #ffffff 0%, #f38379 74%)
+  ">
+      <div class="form-group">
+
+      </div>
+
+      <div class="modal-header">
+        <h5 class="modal-title"  id="exampleModalLabel">Add Product</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"  aria-label="Close"></button>
+      </div>
+       <label>Category</label>
+      <select #myDiv name="categoryId" class="form-control">
+        <option  *ngFor="let category of categoryList"  value="{{category._id}}" name="cid">{{category.catName}} </option>
+
+           <!-- <option value={{category.categoryid}}>{{category.catName}}</option> -->
+
+
+    </select>
+      <div class="modal-body">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="prodName" [(ngModel)]="prodName" placeholder="product name.."  >
+      </div>
+      <div class="modal-body">
+        <label for="price">Price</label>
+        <input type="text" id="price" name="prodPrice" [(ngModel)]="prodPrice" placeholder="product price.." >
+      </div>
+      <div class="modal-body">
+        <label for="flavour">Flavour</label>
+        <input type="text" id="flavour" name="flavour" [(ngModel)]="flavour" placeholder="flavour.">
+      </div>
+      <div class="modal-body">
+        <label for="desc">Description</label>
+        <input type="text" id="desc" name="prodDescription" [(ngModel)]="prodDescription" placeholder="productdescription.." >
+      </div>
+      <div class="modal-body">
+        <label for="image">Image</label>
+        <input type="file" (change)="selectProdImage($event)" id="image" name="prodImage" placeholder="product image..">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="b btn-secondary" style="border-radius: 30px; box-shadow: #1b0806;" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="b btn-outline-success" (click)="addProduct()" style="border-radius: 30px;" > Save changes</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</form>
+
+
+
+
+
+
+
+
+

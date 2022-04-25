@@ -1,0 +1,70 @@
+<div  >
+  <table class="table mt-5">
+    <thead>
+        <tr >
+            <th class="heading" scope="col">S.NO.</th>
+            <th class="heading" scope="col">NAME</th>
+            <th class="heading" scope="col">IMAGE</th>
+            <th class="heading" scope="col">ACTION</th>
+
+
+        </tr>
+    </thead>
+    <tbody class="justify-content-center">
+      <tr *ngFor="let category of categoryList; index as i">
+        <th>{{i+1}}</th>
+        <td>{{category.catName}}</td>
+        <td>
+        <img src={{category.catImage}} width="80px" height="80px">
+      </td>
+<td>
+              <div class="dropdown" >
+                <a>
+
+                  <button style="border: none; background-color: white;" class="btn btnn m-lg-2" (click)="updateCategory(category)" data-bs-toggle="modal" data-bs-target="#Mod" >
+                    <i class="fa fa-edit"
+                    style="color:blue"></i>
+                  </button></a>
+                  <button style="border: none; background-color: white;" type="button" (click)="deleteCategory(category._id)" class="btn btnn "><i class="fa fa-trash"
+                    style="color:red"></i></button>
+                </div>
+              </td>
+            <td>
+
+
+            </td>
+        </tr>
+
+    </tbody>
+</table>
+
+
+
+</div>
+<div class="modal fade" id="Mod" tabindex="1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Update Categpry</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <label for="name">Name</label>
+        <input type="text" [(ngModel)]="catName" id="name" name="catName" placeholder="category name..">
+      </div>
+      <div class="modal-body">
+        <label class="form-label" for="">Old Image</label>
+        <div class="form-group"><img [src]="oldImage" width="80px" height="80px" alt=""></div>
+      </div>
+      <div class="modal-body">
+        <label for="image">Image</label>
+        <input type="file" id="catImage" name="image"  (change)="selectImage($event)" placeholder="category image..">
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="b btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="b btn-primary m-lg-2" (click)="edit()">Update changes</button>
+      </div>
+    </div>
+  </div>
+</div>
